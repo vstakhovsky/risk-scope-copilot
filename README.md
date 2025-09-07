@@ -112,20 +112,11 @@ This leads to **delays, misalignment, and knowledge loss**.
 
 > Minimal MVP with a clean growth path to full orchestration.
 
-## 🧭 Architecture
-
-> Interactive version with links & dark/light theme →  
-> **https://vstakhovsky.github.io/risk-scope-copilot/arch/**
-
-<a href="https://vstakhovsky.github.io/risk-scope-copilot/arch/">
-  <img src="docs/images/arch.gif" alt="Risk & Scope Copilot — Architecture (animated preview)" width="100%">
-</a>
-
-<details>
-<summary>Static (Mermaid) diagram with clickable nodes</summary>
+### Architecture (Mermaid with links)
 
 ```mermaid
 flowchart LR
+  %% --- nodes ---
   IA[/"Intake Adapter\n(JSON / DOCX / etc.)"/]
   ORCH["Orchestrator (UI/API)\n- dispatch to agents\n- evidence collation\n- versioning hooks"]
   REG["Artifact Registry\n- risks, RACI\n- ADRs, diagrams"]
@@ -140,23 +131,26 @@ flowchart LR
 
   EVIDENCE[/"Evidence • Citations • Confidence"/]
 
+  %% --- flows ---
   IA --> ORCH --> REG
   ORCH --- AGENTS
   AGENTS --> EVIDENCE --> REG
 
+  %% --- styling ---
   classDef box fill:#0b66ff0d,stroke:#0b66ff,stroke-width:1px,color:#0b66ff;
   class IA,ORCH,REG box
 
+  %% --- clickable links (works on GitHub) ---
+  %% Link orchestrator to live demo (Lovable) and Replit
   click ORCH "https://preview--copilot-scope-insight.lovable.app/" "Open Lovable prototype"
-  click IA "https://github.com/vstakhovsky/risk-scope-copilot/tree/main/app/upload" "Upload / Intake"
-  click REG "https://github.com/vstakhovsky/risk-scope-copilot/tree/main/app/artifacts" "Artifacts UI"
+  click IA "https://github.com/vstakhovsky/risk-scope-copilot/tree/main/app/upload" "Upload / Intake source"
+  click REG "https://github.com/vstakhovsky/risk-scope-copilot/tree/main/app/artifacts" "Artifacts UI code"
   click A1 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=risk" "Risk agent"
   click A2 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=scope" "Scope agent"
   click A3 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=raci" "RACI agent"
   click A4 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=adr" "ADR agent"
   click A5 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=diagram" "Diagram agent"
 
-```
 
 
 ---
