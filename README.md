@@ -331,5 +331,4 @@ npm run dev
 ## 📜 License
 
 - **MIT © Veniamin Stakhovsky
-- **::contentReference[oaicite:0]{index=0}
 
