@@ -112,23 +112,52 @@ This leads to **delays, misalignment, and knowledge loss**.
 
 > Minimal MVP with a clean growth path to full orchestration.
 
-+------------------+ +-----------------------+ +--------------------+
-| Intake Adapter | ---> | Orchestrator (UI/API)| ---> | Artifact Registry |
-| (JSON/DOCX/etc.) | | - dispatch to agents | | - risks, RACI, |
-+------------------+ | - evidence collation | | ADRs, diagrams |
-| - versioning hooks | +--------------------+
-+-----------+-----------+
-|
-+--------------------------+---------------------------+
-| | | | |
-[Risk Agent] [Scope Agent] [RACI Agent] [ADR Agent] [Diagram Agent]
-| | | | |
-+---------------- Evidence / Citations / Confidence ---+
+## 🧭 Architecture
 
+> Interactive version with links & dark/light theme →  
+> **https://vstakhovsky.github.io/risk-scope-copilot/arch/**
 
+<a href="https://vstakhovsky.github.io/risk-scope-copilot/arch/">
+  <img src="docs/images/arch.gif" alt="Risk & Scope Copilot — Architecture (animated preview)" width="100%">
+</a>
 
-**Animated concept (style inspiration):**  
-![Agents Overview](https://raw.githubusercontent.com/viktoriasemaan/ai-agents/main/images/image24_agent_overview.gif)
+<details>
+<summary>Static (Mermaid) diagram with clickable nodes</summary>
+
+```mermaid
+flowchart LR
+  IA[/"Intake Adapter\n(JSON / DOCX / etc.)"/]
+  ORCH["Orchestrator (UI/API)\n- dispatch to agents\n- evidence collation\n- versioning hooks"]
+  REG["Artifact Registry\n- risks, RACI\n- ADRs, diagrams"]
+
+  subgraph AGENTS[Sub-agents]
+    A1[Risk Agent]
+    A2[Scope Agent]
+    A3[RACI Agent]
+    A4[ADR Agent]
+    A5[Diagram Agent]
+  end
+
+  EVIDENCE[/"Evidence • Citations • Confidence"/]
+
+  IA --> ORCH --> REG
+  ORCH --- AGENTS
+  AGENTS --> EVIDENCE --> REG
+
+  classDef box fill:#0b66ff0d,stroke:#0b66ff,stroke-width:1px,color:#0b66ff;
+  class IA,ORCH,REG box
+
+  click ORCH "https://preview--copilot-scope-insight.lovable.app/" "Open Lovable prototype"
+  click IA "https://github.com/vstakhovsky/risk-scope-copilot/tree/main/app/upload" "Upload / Intake"
+  click REG "https://github.com/vstakhovsky/risk-scope-copilot/tree/main/app/artifacts" "Artifacts UI"
+  click A1 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=risk" "Risk agent"
+  click A2 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=scope" "Scope agent"
+  click A3 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=raci" "RACI agent"
+  click A4 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=adr" "ADR agent"
+  click A5 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=diagram" "Diagram agent"
+
+```
+
 
 ---
 
