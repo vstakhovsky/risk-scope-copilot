@@ -2,20 +2,24 @@ import './globals.css'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { LayoutDashboard, Upload, Boxes, ShieldAlert, Settings } from 'lucide-react'
+import type { Route } from 'next'
 
 export const metadata = {
   title: 'Risk & Scope Copilot',
   description: 'Multi-agent Risk, Scope, RACI & ADR analyzer.',
 }
 
+type NavItem = { href: Route; label: string; icon: any }
+
+const items: NavItem[] = [
+  { href: '/' as Route,          label: 'Overview',          icon: LayoutDashboard },
+  { href: '/upload' as Route,    label: 'Upload & Intake',   icon: Upload },
+  { href: '/artifacts' as Route, label: 'Artifacts Hub',     icon: Boxes },
+  { href: '/status' as Route,    label: 'Status Dashboard',  icon: ShieldAlert },
+  { href: '/admin' as Route,     label: 'Admin',             icon: Settings },
+]
+
 function Nav() {
-  const items = [
-    { href: '/', label: 'Overview', icon: LayoutDashboard },
-    { href: '/upload', label: 'Upload & Intake', icon: Upload },
-    { href: '/artifacts', label: 'Artifacts Hub', icon: Boxes },
-    { href: '/status', label: 'Status Dashboard', icon: ShieldAlert },
-    { href: '/admin', label: 'Admin', icon: Settings },
-  ]
   return (
     <aside className="hidden md:flex md:flex-col gap-2 w-64 p-4 border-r border-gray-200 dark:border-gray-800">
       <Link href="/" className="flex items-center gap-2 mb-4">
