@@ -152,6 +152,24 @@ flowchart LR
 
 ```
 
+### Sequence (at a glance)
+
+```mermaid
+sequenceDiagram
+  participant U as User
+  participant UI as Orchestrator (UI/API)
+  participant A as Sub-Agents
+  participant R as Artifact Registry
+
+  U->>UI: Upload document(s) + select profile
+  UI->>A: Dispatch tasks (risk/scope/raci/adr/diagram)
+  A-->>UI: Artifacts + evidence + confidence
+  UI->>R: Store versions (diffable)
+  U->>UI: Review artifacts (evidence drawer)
+  UI-->>U: Export (MD/JSON) + Share (v2+)
+
+```
+
 
 ---
 
@@ -208,6 +226,7 @@ flowchart LR
 # 1) Clone
 git clone https://github.com/vstakhovsky/risk-scope-copilot.git
 cd risk-scope-copilot
+npm ci && npm run dev   # http://localhost:3000
 
 # 2) (Optional) use Node 22 with nvm
 nvm use 22 || nvm install 22
@@ -242,6 +261,59 @@ actions/setup-node@v4 (Node 22 + npm cache)
 npm ci → npm run lint → npm run build
 Status badge at the top of this README.
 ```
+
+---
+
+
+### Deployment (Vercel + Docker)
+```md
+## 🚀 Deployment
+
+### Vercel
+- Repo → Import into Vercel → Framework: **Next.js (App Router)**
+- Env vars: none for v0.1
+- Build: `npm ci && npm run build` · Start: `npm start`
+
+### Docker (optional)
+```dockerfile
+FROM node:22-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm","start"]
+```
+
+---
+
+
+### 8) Troubleshooting / FAQ
+```md
+## 🛠 Troubleshooting / FAQ
+
+**Next fails to build with PostCSS ESM error**  
+Use CommonJS for PostCSS: `postcss.config.cjs` (already in repo).
+
+**ESM/CJS conflicts**  
+Stay on Node 22.x and Next 14; do not rename `.cjs` to `.js`.
+
+**Port is busy / app won’t start**  
+Kill the process on `:3000` or `PORT=3001 npm run dev`.
+
+**Mermaid doesn’t render on GitHub**  
+```
+
+---
+
+## 🔐 Privacy & Limits
+
+- We **do not** train on your project data.
+- v0.1 works **offline** (mocked pipeline), no external secrets.
+- Recommended input: ≤ 10 pages/sample (MVP scope).
+- Planned: expirable share links (v2), RBAC & OAuth (v3).
+
 ---
 
 ## 🗺️ Roadmap
@@ -265,6 +337,23 @@ v0.3 – Scale / Advanced
 - **SLA dashboards (release drift / dependency risk)
 - **RBAC & OAuth (GitHub/Google)
 - **Workspaces & team review flows
+
+---
+
+## 🧭 Version Tiers (Feature Matrix)
+
+| Capability | V1 – MVP (now) | V2 – Beta | V3 – Scale |
+|---|---|---|---|
+| Risks & Constraints | ✅ | ✅ | ✅ |
+| Scope Options (A/B/C) | ✅ | ✅ | ✅ |
+| RACI Matrix | ✅ | ✅ | ✅ |
+| ADR Records (with versions) | ✅ (UI) | ✅ (export) | ✅ (review flows) |
+| Diagrams (C4-lite / flows) | ✅ (basic) | ✅ (generator v1) | ✅ (advanced) |
+| Importers (Jira/Confluence/GitHub) | ⭕ (mock) | ✅ | ✅ |
+| Exporters (MD/JSON/PDF) | ✅ (MD/JSON) | ✅ (PDF) | ✅ |
+| Read-only share links (expiry) | ⭕ | ✅ | ✅ |
+| Multi-agent orchestration | Scaffold | ✅ (retries) | ✅ (obs., RBAC) |
+| Dashboards (SLA/drift) | Basic Status | Improved | Advanced (program level) |
 
 
 ---
@@ -330,6 +419,10 @@ npm run lint
 npm run build
 npm run dev
 ```
+
+## 🔒 Security
+- Report vulnerabilities via **SECURITY.md** (private email/flow).
+- Enable **Dependabot** updates via `/.github/dependabot.yml`.
 
 ---
 
