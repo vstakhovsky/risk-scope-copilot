@@ -76,6 +76,9 @@ This leads to **delays, misalignment, and knowledge loss**.
 ## 🖼️ Screenshots
 
 > Put your screenshots under `docs/screenshots/` (or adjust paths below).
+><img width="2896" height="5182" alt="preview-copilot-scope-1" src="https://github.com/user-attachments/assets/ad751f85-ddb6-418c-af03-027de8430136" />
+
+> 
 
 <p align="center">
   <img src="docs/screenshots/overview.png" width="900" alt="Overview"/>
