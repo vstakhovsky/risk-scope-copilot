@@ -14,9 +14,6 @@
 ✅ Diagrams  
 ✅ Status Dashboard
 
-> Live prototypes:  
-> • Lovable: https://preview--copilot-scope-insight.lovable.app/  
-> • Replit: https://risk-scope-copilot-vstakhovsky.replit.app/
 
 > **Try it now**
 >
