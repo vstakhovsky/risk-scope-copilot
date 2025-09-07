@@ -18,6 +18,14 @@
 > • Lovable: https://preview--copilot-scope-insight.lovable.app/  
 > • Replit: https://risk-scope-copilot-vstakhovsky.replit.app/
 
+> **Try it now**
+>
+> 🔴 **Live Demo (Lovable)** · https://preview--copilot-scope-insight.lovable.app/  
+> 🟢 **Open in Replit** · https://risk-scope-copilot-vstakhovsky.replit.app/
+
+<sup>v0.1 (MVP): multi-agent scaffold with mocked pipeline; no external secrets required.</sup>
+
+
 ---
 
 ## 🌍 Table of Contents
