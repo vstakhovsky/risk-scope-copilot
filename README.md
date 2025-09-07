@@ -151,6 +151,7 @@ flowchart LR
   click A4 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=adr" "ADR agent"
   click A5 "https://github.com/vstakhovsky/risk-scope-copilot/search?q=diagram" "Diagram agent"
 
+```
 
 
 ---
