@@ -75,26 +75,17 @@ This leads to **delays, misalignment, and knowledge loss**.
 
 ## 🖼️ Screenshots
 
-> Put your screenshots under `docs/screenshots/` (or adjust paths below).
-><img width="2896" height="5182" alt="preview-copilot-scope-1" src="https://github.com/user-attachments/assets/ad751f85-ddb6-418c-af03-027de8430136" />
+<img width="2896" height="5182" alt="preview-copilot-scope-1" src="https://github.com/user-attachments/assets/ad751f85-ddb6-418c-af03-027de8430136" />
 
-> 
+<img width="2896" height="2154" alt="preview-copilot-scope-2" src="https://github.com/user-attachments/assets/b79bc2fb-79f3-452e-a62c-2c8fe2800e4d" />
 
-<p align="center">
-  <img src="docs/screenshots/overview.png" width="900" alt="Overview"/>
-</p>
-<p align="center">
-  <img src="docs/screenshots/workflow-demo.png" width="900" alt="Workflow Demo"/>
-</p>
-<p align="center">
-  <img src="docs/screenshots/document-history.png" width="900" alt="Document History"/>
-</p>
-<p align="center">
-  <img src="docs/screenshots/sub-agents.png" width="900" alt="Sub-Agent System"/>
-</p>
-<p align="center">
-  <img src="docs/screenshots/docs-overview.png" width="900" alt="In-app Documentation"/>
-</p>
+<img width="2896" height="2638" alt="preview-copilot-scope-3" src="https://github.com/user-attachments/assets/48e0bb6f-9174-4534-bb64-106496dfbf61" />
+
+<img width="2896" height="1980" alt="preview-copilot-scope-4" src="https://github.com/user-attachments/assets/09a10b2c-e9cb-458f-be06-9677e9eba489" />
+
+<img width="2896" height="2096" alt="preview-copilot-scope-5" src="https://github.com/user-attachments/assets/7f55184b-a3de-4838-808c-8c839010dc10" />
+
+<img width="2896" height="2168" alt="preview-copilot-scope-6" src="https://github.com/user-attachments/assets/b4822446-7f04-4ca5-8f41-d5bd8accfb1d" />
 
 ---
 
